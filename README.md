@@ -4,7 +4,7 @@ Arduino powered camera trigger
 # Introduction
 Hi and thank you for being here.
 
-This project has been dreamed up by myself, David Bristoll (@Pringleman83), and my friend, Abhiram Vijayakumar (@Njan_Crack). We're both spare time tinkerers, hackers (of the hardware variety) and hobby photographers.
+This project has been dreamed up by myself, David Bristoll (Pringleman83), and my friend, Abhiram Vijayakumar (Abhiram223344). We're both spare time tinkerers, hackers (of the hardware variety) and hobby photographers.
 
 The aim is to create a battery powered device that can be connected to a DSLR camera and various sensors. The device will use those sensors, and / or timing, to trigger the camera to take a shot. We've taken a lot of inspiration from the excellent open source project;  photoduino (found here: https://kalanda.github.io/photoduino/documentation/hardware/photoduino-shield-3-0/).
 
