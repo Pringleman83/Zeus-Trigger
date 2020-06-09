@@ -33,9 +33,51 @@ The basic idea is that I'll be working very much on the code side of things and 
   * Produce a usable menu system testing the three buttons and oled display
   * Add the IR LED and code that so that it works with a camera
   
+# Current hardware and software
+
+Hardware configuration is as follows:
+
+Arduino Nano clone based
+
+Arduino pin		Configuration		Connection 1			Connection 2			Connection 3
+
+D2				INPUT_PULLUP		BUTTON_1				GND
+D3				INPUT_PULLUP		BUTTON_2				GND
+D4				INPUT_PULLUP		BUTTON_3				GND
+D5				OUTPUT				220 Ohm resistor		Red LED					GND
+D6				OUTPUT				220 Ohm resistor		Green LED				GND
+D7				OUTPUT				220 Ohm resistor		IR LED					GND
+
+A4									OLED SDA
+A5									OLED SCL
+5V									OLED VCC
+GND									OLED GND				GND
+
+Software
+
+BUTTON_1 = Left
+BUTTON_2 = Middle
+BUTTON_3 = Right
+
+The current code shows the Zeus Trigger logo and flashes it a few times.
+There's then a seven item menu that can be navigated using the left and right buttons.
+The centre button lights up the selected item momentarily.
+
+The buttons also illuminate the following LEDs for testing purposes:
+BUTTON_1 = green LED
+BUTTON_2 = IR LED
+BUTTON_3 = red LEDs
+
+The code includes debounce for each button and scroll speed control for the menu.
+The speed control prevents speeding through the menu too quickly when a button is held for too long.
+
 # Contributing
 
-If you'd like to contribute to this project please let us know. Let us know what areas you may be able to help in. In the near future we'll also list here any specific requirements we have.
+If you'd like to contribute to this project please let us know what areas you may be able to help in.
+
+We're currently looking for:
+
+* somebody who may be able to design an enclosure for the completed project
 
 # Thank you
 
