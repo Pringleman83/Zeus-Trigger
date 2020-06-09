@@ -71,6 +71,11 @@ BUTTON_3 = red LEDs
 The code includes debounce for each button and scroll speed control for the menu.
 The speed control prevents speeding through the menu too quickly when a button is held for too long.
 
+![Current prototype front] (https://github.com/Pringleman83/Zeus-Trigger/Zeus_Trigger_Proto1_front.jpg)
+
+![Current prototype back] (https://github.com/Pringleman83/Zeus-Trigger/Zeus_Trigger_Proto1_back.jpg)
+
+
 # Contributing
 
 If you'd like to contribute to this project please let us know what areas you may be able to help in.
