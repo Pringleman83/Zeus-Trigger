@@ -35,8 +35,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define BUTTON_2      3
 #define BUTTON_3      4
 #define GREEN_LED     5
-#define RED_LED       6
-#define IR_LED        7
+#define RED_LED       7
+#define IR_LED        6 // Must be a PWM 980Hz pin
 
 long currentMillis;
 

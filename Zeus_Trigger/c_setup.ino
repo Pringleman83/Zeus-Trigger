@@ -21,12 +21,14 @@ void setup() {
 
   // Intro display
   drawLogo();
+  delay(1000);
   // Invert and restore display, pausing in-between
   for (int i=0; i<10; i++){
     display.invertDisplay(on);
     on = !on;
     delay(60);
-  }  
+  }
+  delay(1000);
 
   // Prepare display for main use
   display.setTextSize(1);

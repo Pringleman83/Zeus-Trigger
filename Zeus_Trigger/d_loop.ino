@@ -102,6 +102,8 @@ void loop() {
       display.clearDisplay();
       display.setCursor(0,5);
       display.print("Menu item 1");
+      display.setCursor(0,20);
+      display.print("Test sub menu");
       display.display();
            
       if (button2State){
@@ -118,12 +120,18 @@ void loop() {
       display.clearDisplay();
       display.setCursor(0,5);
       display.print("Menu item 2");
+      display.setCursor(0,20);
+      display.print("Trigger Nikon Camera");
       display.display();
       
       if (button2State){
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        if (debug){
+          Serial.println("nikonShoot");
+        }
+        nikonShoot();
         resetButton2();
       }
       break;

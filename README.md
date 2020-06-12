@@ -44,9 +44,9 @@ Arduino pin		Configuration		Connection 1			Connection 2			Connection 3
 D2				INPUT_PULLUP		BUTTON_1				GND
 D3				INPUT_PULLUP		BUTTON_2				GND
 D4				INPUT_PULLUP		BUTTON_3				GND
-D5				OUTPUT				220 Ohm resistor		Red LED					GND
-D6				OUTPUT				220 Ohm resistor		Green LED				GND
-D7				OUTPUT				220 Ohm resistor		IR LED					GND
+D5				OUTPUT				220 Ohm resistor		Green LED				GND
+D6				OUTPUT				220 Ohm resistor		IR LED					GND
+D7				OUTPUT				220 Ohm resistor		Red LED					GND
 
 A4									OLED SDA
 A5									OLED SCL
@@ -60,8 +60,11 @@ BUTTON_2 = Middle
 BUTTON_3 = Right
 
 The current code shows the Zeus Trigger logo and flashes it a few times.
-There's then a seven item menu that can be navigated using the left and right buttons.
+There's then a six item menu that can be navigated using the left and right buttons.
 The centre button lights up the selected item momentarily.
+The first menu item is an example item with a sub menu.
+The sub menu has 6 items incluing a back option. These menus can be selected using the centre button.
+The second item in the main menu is to send a "shoot" command via the IR LED to a Nikon camera.
 
 The buttons also illuminate the following LEDs for testing purposes:
 BUTTON_1 = green LED
