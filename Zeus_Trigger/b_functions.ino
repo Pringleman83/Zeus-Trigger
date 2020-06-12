@@ -8,3 +8,10 @@ void drawLogo(void) {
     logo_bmp, LOGO_WIDTH, LOGO_HEIGHT, 1);
   display.display();
 }
+
+void resetButton2(void){
+  // Resets button 2 to off so that double selections don't happen
+  button2State = 0;
+  button2PrevState = 0;
+  button2Debounce = currentMillis;
+}

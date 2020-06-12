@@ -52,9 +52,14 @@ void loop() {
   // Go down a level
   if (button1State && ((currentMillis - lastMenuChange) > menuChangeDelay)){
     lastMenuChange = currentMillis;
-    // If already at lowest level cycle back to the top
-    if (mainMenuItem == 0){
+    // If already at lowest level of main menu cycle back to the top
+    if (mainMenuItem == 1){
       mainMenuItem = highestMainMenuItem;
+    }
+    
+    // If already at lowest level of menu 1 cycle back to the top
+    else if (mainMenuItem == 101){
+      mainMenuItem = highestMenu1Item;
     }
     // Otherwise go down 1
     else {
@@ -66,29 +71,31 @@ void loop() {
     lastMenuChange = currentMillis;
     // If already at the highest level cycle back to the bottom
     if (mainMenuItem == highestMainMenuItem){
-      mainMenuItem = 0;
+      mainMenuItem = 1;
+    }
+    // If already at the highest level of 1 menu cycle back to the bottom
+    else if (mainMenuItem == highestMenu1Item){
+      mainMenuItem = 101;
     }
     // Otherwise go up 1
     else {
       mainMenuItem = mainMenuItem + 1;
     }
   }
-  
+
+  if (debug){
+    //Display the current select menu item in the serial output every time it changes if debugging is enabled
+    if (mainMenuItem != prevMainMenuItem){
+      Serial.println();
+      Serial.println("///////////");
+      Serial.println("Debug - Current mainMenuItem:");
+      Serial.println(mainMenuItem);
+      Serial.println("///////////");
+      Serial.println();
+      prevMainMenuItem = mainMenuItem;
+    }
+  }
   switch (mainMenuItem) {
-    ////////////////////////////////// 
-    case 0:
-      // Display logo
-      display.clearDisplay();
-      drawLogo();
-      display.display();
-  
-      if (button2State){
-        display.invertDisplay(1);
-        delay(100);
-        display.invertDisplay(0);
-      }
-      
-      break;
     ////////////////////////////////// 
     case 1:
       // Display menu item 1
@@ -96,11 +103,13 @@ void loop() {
       display.setCursor(0,5);
       display.print("Menu item 1");
       display.display();
-      
+           
       if (button2State){
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        mainMenuItem = 101;
+        resetButton2();
       }
       break;
     //////////////////////////////////   
@@ -115,6 +124,7 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        resetButton2();
       }
       break;
     ////////////////////////////////// 
@@ -129,6 +139,7 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        resetButton2();
       }
       break;
     ////////////////////////////////// 
@@ -143,6 +154,7 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        resetButton2();
       }
       break;
     ////////////////////////////////// 
@@ -157,6 +169,7 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        resetButton2();
       }
       break;
     ////////////////////////////////// 
@@ -171,8 +184,106 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
+        resetButton2();
       }
       break;
+    ////////////////////////////////// 
+    //End of main menu////////////////
+    ////////////////////////////////// 
+    //Sub Menus///////////////////////
+    //Sub Menu 1//////////////////////
+      case 101:
+      // Display menu item 101 - Sub menu for 1
+      display.clearDisplay();
+      display.setCursor(0,5);
+      display.print("Menu item 101");
+      display.display();
+
+      if (button2State){
+        display.invertDisplay(1);
+        delay(100);
+        display.invertDisplay(0);
+        resetButton2();
+      }
+      break;
+      //////////////////////////////////
+      case 102:
+      // Display menu item 102 - Sub menu for 1
+      display.clearDisplay();
+      display.setCursor(0,5);
+      display.print("Menu item 102");
+      display.display();
+
+      if (button2State){
+        display.invertDisplay(1);
+        delay(100);
+        display.invertDisplay(0);
+        resetButton2();
+      }
+      break;
+      //////////////////////////////////
+      case 103:
+      // Display menu item 103 - Sub menu for 1
+      display.clearDisplay();
+      display.setCursor(0,5);
+      display.print("Menu item 103");
+      display.display();
+
+      if (button2State){
+        display.invertDisplay(1);
+        delay(100);
+        display.invertDisplay(0);
+        resetButton2();
+      }
+      break;
+      //////////////////////////////////
+      case 104:
+      // Display menu item 104 - Sub menu for 1
+      display.clearDisplay();
+      display.setCursor(0,5);
+      display.print("Menu item 104");
+      display.display();
+
+      if (button2State){
+        display.invertDisplay(1);
+        delay(100);
+        display.invertDisplay(0);
+        resetButton2();
+      }
+      break;
+      //////////////////////////////////
+      case 105:
+      // Display menu item 105 - Sub menu for 1
+      display.clearDisplay();
+      display.setCursor(0,5);
+      display.print("Menu item 105");
+      display.display();
+
+      if (button2State){
+        display.invertDisplay(1);
+        delay(100);
+        display.invertDisplay(0);
+        resetButton2();
+      }
+      break;
+      //////////////////////////////////
+      case 106:
+      // Display menu item 106 - Sub menu for 1
+      display.clearDisplay();
+      display.setCursor(0,5);
+      display.print("Menu item 106 - BACK");
+      display.display();
+
+      if (button2State){
+        display.invertDisplay(1);
+        delay(100);
+        display.invertDisplay(0);
+        mainMenuItem = 1;
+        resetButton2();
+      }
+      break;
+      //////////////////////////////////
+     
   }
 
 }

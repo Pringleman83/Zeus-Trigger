@@ -19,7 +19,9 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-
+//Debugging options and related variables
+bool debug = true;
+int prevMainMenuItem = 999;
 //===================
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
@@ -54,5 +56,13 @@ unsigned long menuChangeDelay = 250; // Prevents speeding through menus too quic
 unsigned long lastMenuChange = 0;
 unsigned long debounceDelay = 50;
 
-int mainMenuItem = 0; // Current selected item in the menu
+//Menu variables
+int mainMenuItem = 1; // Current selected item in the menu
 int highestMainMenuItem = 6; // The last item in the menu (so we can go back to 0 at next press)
+int highestMenu1Item = 106; // The last item in the 1 submenu
+int highestMenu2Item = 106; // The last item in the 2 submenu
+int highestMenu3Item = 106; // The last item in the 3 submenu
+int highestMenu4Item = 106; // The last item in the 4 submenu
+int highestMenu5Item = 106; // The last item in the 5 submenu
+int highestMenu6Item = 106; // The last item in the 6 submenu
+int highestMenu7Item = 106; // The last item in the 7 submenu
