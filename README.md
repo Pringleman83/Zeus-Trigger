@@ -22,7 +22,7 @@ The basic idea is that I'll be working very much on the code side of things and 
 * Light sensor for specialist photography such as lightening or laser triggered photography
 * Infra Red LED for wireless communication with popular DSLR cameras
 * Camera port for wired connection to popular cameras
-* Three buttons for simple navigation, selection and adjustment of options
+* Four buttons for simple navigation, selection and adjustment of options
 * Settings stored on internal eeprom
 
 # Do next
@@ -30,7 +30,7 @@ The basic idea is that I'll be working very much on the code side of things and 
 * Agree possible final designs
 * List required components
 * Build some proof of concept designs to:
-  * Produce a usable menu system testing the three buttons and oled display
+  * Produce a usable menu system testing four buttons and oled display (done)
   * Add the IR LED and code that so that it works with a camera
   
 # Current hardware and software
@@ -75,17 +75,13 @@ BUTTON_4 = Right
 
 The current code shows the Zeus Trigger logo and flashes it a few times.
 There's then a six item menu that can be navigated using the left and right buttons.
-The centre button lights up the selected item momentarily.
-The first menu item is an example item with a sub menu.
-The sub menu has 6 items incluing a back option. These menus can be selected using the centre button.
+The first menu item is an example item with a sub menu. This sub menu also contains a menu with its second item.
+
 The second item in the main menu is to send a "shoot" command via the IR LED to a Nikon camera.
 
 The code includes debounce for each button and scroll speed control for the menu.
-The speed control prevents speeding through the menu too quickly when a button is held for too long.
+The scroll peed control prevents speeding through the menu too quickly when a button is held for too long.
 
-![Current prototype front] (https://github.com/Pringleman83/Zeus-Trigger/Zeus_Trigger_Proto1_front.jpg)
-
-![Current prototype back] (https://github.com/Pringleman83/Zeus-Trigger/Zeus_Trigger_Proto1_back.jpg)
 
 # Contributing
 
