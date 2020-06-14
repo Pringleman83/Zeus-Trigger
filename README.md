@@ -42,17 +42,29 @@ Arduino Nano clone based
 Arduino pin------Configuration------Connection 1------Connection 2------Connection 3
 
 D2---------------INPUT_PULLUP-------BUTTON_1----------GND
+
 D3---------------INPUT_PULLUP-------BUTTON_2----------GND
+
 D4---------------INPUT_PULLUP-------BUTTON_3----------GND
+
 D5---------------INPUT_PULLUP-------BUTTON_4----------GND
+
 D6---------------OUTPUT-------------220 Ohm resistor--IR_LED-------------GND
+
 D7---------------OUTPUT-------------220 Ohm resistor--RED_LED------------GND
+
 D8---------------OUTPUT-------------220 Ohm resistor--GREEN_LED----------GND
 
+
+
 A4---------------OLED SDA
+
 A5---------------OLED SCL
+
 5V---------------OLED VCC
+
 GND--------------OLED GND-----------GND
+
 
 Software
 
