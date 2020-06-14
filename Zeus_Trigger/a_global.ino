@@ -10,7 +10,6 @@
  * Adafruit GFX
  */
 
-
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -20,7 +19,7 @@
 #define SCREEN_HEIGHT 64
 
 //Debugging options and related variables
-bool debug = false;
+bool debug = true;
 int prevMenuItemDebug = 999;
 int prevParentItemDebug = 999;
 //===================
