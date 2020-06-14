@@ -1,5 +1,4 @@
 void loop() {
-
   currentMillis = millis();
     
   button1Read = !digitalRead(BUTTON_1);
@@ -109,18 +108,28 @@ void loop() {
     //Display the current select menu item in the serial output every time it changes if debugging is enabled
     if (menuItem != prevMenuItemDebug){
       Serial.println();
+      delay(100);
       Serial.println("///////////");
+      delay(100);
       Serial.println("Debug - menuItem:");
+      delay(10);
       Serial.println(menuItem);
+      delay(100);
       Serial.println("///////////");
+      delay(100);
       Serial.println();
+      delay(100);
       prevMenuItemDebug = menuItem;
     }
     if (parentItem != prevParentItemDebug){
       Serial.println("///////////");
+      delay(100);
       Serial.println("Debug - parentItem:");
+      delay(100);
       Serial.println(parentItem);
+      delay(100);
       Serial.println("///////////");
+      delay(100);
       Serial.println();
       prevParentItemDebug = parentItem;
     }

@@ -1,5 +1,5 @@
 void setup() {
-  Serial.begin(115200); //For debugging purposes
+  Serial.begin(9600); //For debugging purposes
 
   pinMode(BUTTON_1, INPUT_PULLUP);
   pinMode(BUTTON_2, INPUT_PULLUP);
@@ -9,12 +9,11 @@ void setup() {
   pinMode(RED_LED, OUTPUT);
   pinMode(IR_LED, OUTPUT);
 
-  bool on = true; // Used to animate logo during setup
   
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
+  while(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
     Serial.println(F("SSD1306 allocation failed"));
-    for(;;); // Don't proceed, loop forever
+    delay(1000);
   }
 
   // Clear the buffer
@@ -24,6 +23,7 @@ void setup() {
   drawLogo();
   delay(1000);
   // Invert and restore display, pausing in-between
+  bool on = true; // Used to animate logo during setup
   for (int i=0; i<10; i++){
     display.invertDisplay(on);
     on = !on;

@@ -20,7 +20,7 @@
 #define SCREEN_HEIGHT 64
 
 //Debugging options and related variables
-bool debug = true;
+bool debug = false;
 int prevMenuItemDebug = 999;
 int prevParentItemDebug = 999;
 //===================
