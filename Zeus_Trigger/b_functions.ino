@@ -9,12 +9,20 @@ void drawLogo(void) {
   display.display();
 }
 
+void resetButton3(void){
+  // Resets button 2 to off so that double selections don't happen
+  button3State = 0;
+  button3PrevState = 0;
+  button3Debounce = currentMillis;
+}
+
 void resetButton2(void){
   // Resets button 2 to off so that double selections don't happen
   button2State = 0;
   button2PrevState = 0;
   button2Debounce = currentMillis;
 }
+
 
 void nikonShoot(void) {
 int i;
