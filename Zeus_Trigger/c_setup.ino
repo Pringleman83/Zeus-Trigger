@@ -1,5 +1,6 @@
 void setup() {
   Serial.begin(9600); //For debugging purposes
+  while(!Serial);
 
   pinMode(BUTTON_1, INPUT_PULLUP);
   pinMode(BUTTON_2, INPUT_PULLUP);

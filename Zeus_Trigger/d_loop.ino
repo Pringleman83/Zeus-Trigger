@@ -108,18 +108,18 @@ void loop() {
     //Display the current select menu item in the serial output every time it changes if debugging is enabled
     if (menuItem != prevMenuItemDebug){
       Serial.println();
-      //Serial.println("///////////");
+      Serial.println("///////////");
       Serial.println("menuItem:");
       Serial.println(menuItem);
-      //Serial.println("///////////");
+      Serial.println("///////////");
       Serial.println();
       prevMenuItemDebug = menuItem;
     }
     if (parentItem != prevParentItemDebug){
-      //Serial.println("///////////");
+      Serial.println("///////////");
       Serial.println("parentItem:");
       Serial.println(parentItem);
-      //Serial.println("///////////");
+      Serial.println("///////////");
       Serial.println();
       prevParentItemDebug = parentItem;
     }
