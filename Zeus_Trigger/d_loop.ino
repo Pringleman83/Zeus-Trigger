@@ -1,5 +1,4 @@
 void loop() {
-
   currentMillis = millis();
     
   button1Read = !digitalRead(BUTTON_1);
@@ -109,18 +108,18 @@ void loop() {
     //Display the current select menu item in the serial output every time it changes if debugging is enabled
     if (menuItem != prevMenuItemDebug){
       Serial.println();
-      Serial.println("///////////");
-      Serial.println("Debug - menuItem:");
+      //Serial.println("///////////");
+      Serial.println("menuItem:");
       Serial.println(menuItem);
-      Serial.println("///////////");
+      //Serial.println("///////////");
       Serial.println();
       prevMenuItemDebug = menuItem;
     }
     if (parentItem != prevParentItemDebug){
-      Serial.println("///////////");
-      Serial.println("Debug - parentItem:");
+      //Serial.println("///////////");
+      Serial.println("parentItem:");
       Serial.println(parentItem);
-      Serial.println("///////////");
+      //Serial.println("///////////");
       Serial.println();
       prevParentItemDebug = parentItem;
     }
@@ -160,7 +159,7 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
-        if (0){
+        if (debug){
           Serial.println("nikonShoot");
         }
         nikonShoot();
@@ -328,7 +327,7 @@ void loop() {
       if (button3State){
         display.invertDisplay(1);
         delay(100);
-        //display.invertDisplay(0);
+        display.invertDisplay(0);
         menuItem = 1;
         resetButton3();
       }

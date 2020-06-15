@@ -25,34 +25,33 @@ void resetButton2(void){
 
 
 void nikonShoot(void) {
-int i;
-for (i = 0; i < 76; i++) {
-digitalWrite(IR_LED, HIGH);
-delayMicroseconds(7);
-digitalWrite(IR_LED, LOW);
-delayMicroseconds(7);
-}
-delay(27);
-delayMicroseconds(810);
-for (i = 0; i < 16; i++) {
-digitalWrite(IR_LED, HIGH);
-delayMicroseconds(7);
-digitalWrite(IR_LED, LOW);
-delayMicroseconds(7);
-}
-delayMicroseconds(1540);
-for (i = 0; i < 16; i++) {
-digitalWrite(IR_LED, HIGH);
-delayMicroseconds(7);
-digitalWrite(IR_LED, LOW);
-delayMicroseconds(7);
-}
-delayMicroseconds(3545);
-for (i = 0; i < 16; i++) {
-digitalWrite(IR_LED, HIGH);
-delayMicroseconds(7);
-digitalWrite(IR_LED, LOW);
-delayMicroseconds(7);
-}
-
+  int i;
+  for (i = 0; i < 76; i++) {
+    digitalWrite(IR_LED, HIGH);
+    delayMicroseconds(7);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(7);
+  }
+  delay(27);
+  delayMicroseconds(810);
+  for (i = 0; i < 16; i++) {
+    digitalWrite(IR_LED, HIGH);
+    delayMicroseconds(7);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(7);
+  }
+  delayMicroseconds(1540);
+  for (i = 0; i < 16; i++) {
+    digitalWrite(IR_LED, HIGH);
+    delayMicroseconds(7);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(7);
+  }
+  delayMicroseconds(3545);
+  for (i = 0; i < 16; i++) {
+    digitalWrite(IR_LED, HIGH);
+    delayMicroseconds(7);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(7);
+  }
 }
