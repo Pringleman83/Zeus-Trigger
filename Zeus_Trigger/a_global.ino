@@ -19,7 +19,7 @@
 #define SCREEN_HEIGHT 64
 
 //Debugging options and related variables
-bool debug = true;
+bool debug = false;
 int prevMenuItemDebug = 999;
 int prevParentItemDebug = 999;
 //===================
@@ -75,3 +75,7 @@ int highestMenu5Item = 506; // The last item in the 5 submenu
 int highestMenu6Item = 606; // The last item in the 6 submenu
 int highestMenu7Item = 706; // The last item in the 7 submenu
 int parentItem = 1;// Current menu parent item - Used for back button operation
+
+//Option variables
+// Many of these values will be recovered from the eeprom on boot
+unsigned long intervalometerInterval = 10000000; // Number of milliseconds between each shot using the intervalometer
