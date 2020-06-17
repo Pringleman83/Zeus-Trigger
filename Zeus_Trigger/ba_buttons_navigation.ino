@@ -109,3 +109,31 @@ void backCheck(void){
     resetButton2();
   }
 }
+
+void resetButton1(void){
+  // Resets button 2 to off so that double selections don't happen
+  button1State = 0;
+  button1PrevState = 0;
+  button1Debounce = currentMillis;
+}
+
+void resetButton2(void){
+  // Resets button 2 to off so that double selections don't happen
+  button2State = 0;
+  button2PrevState = 0;
+  button2Debounce = currentMillis;
+}
+
+void resetButton3(void){
+  // Resets button 2 to off so that double selections don't happen
+  button3State = 0;
+  button3PrevState = 0;
+  button3Debounce = currentMillis;
+}
+
+void resetButton4(void){
+  // Resets button 2 to off so that double selections don't happen
+  button4State = 0;
+  button4PrevState = 0;
+  button4Debounce = currentMillis;
+}

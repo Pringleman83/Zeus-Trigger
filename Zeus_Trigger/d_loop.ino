@@ -139,7 +139,7 @@ void loop() {
       display.print("1) Set interval");
       display.setCursor(0,35);
       display.print("Current:");
-      displayTime(0, 50, getHours(intervalometerInterval), getMinutes(intervalometerInterval), getSeconds(intervalometerInterval));
+      displayTime(0, 50, getHours(intervalometerInterval), getMinutes(intervalometerInterval), getSeconds(intervalometerInterval), 0, false);
       parentItem = 1;
 
       if (button3State){

@@ -43,6 +43,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 long currentMillis;
 
+//Button variables
 bool button1Read;
 bool button2Read;
 bool button3Read;
@@ -63,6 +64,12 @@ unsigned long menuChangeDelay = 250; // Prevents speeding through menus too quic
 unsigned long lastMenuChange = 0;
 unsigned long debounceDelay = 50;
 
+//Cursor variables
+unsigned long flashTime = 250
+;
+unsigned long lastFlash = 0;
+bool flashState = false;
+
 //Menu variables
 int menuItem = 1; // Current selected item in the menu
 int highestMenu0Item = 6; // The last item in the menu (so we can go back to 0 at next press)
@@ -78,4 +85,4 @@ int parentItem = 1;// Current menu parent item - Used for back button operation
 
 //Option variables
 // Many of these values will be recovered from the eeprom on boot
-unsigned long intervalometerInterval = 10000000; // Number of milliseconds between each shot using the intervalometer
+unsigned long intervalometerInterval = 0; // Number of milliseconds between each shot using the intervalometer
