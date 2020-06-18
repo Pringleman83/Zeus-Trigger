@@ -30,8 +30,10 @@ The basic idea is that I'll be working very much on the code side of things and 
 * Agree possible final designs
 * List required components
 * Build some proof of concept designs to:
-  * Produce a usable menu system testing four buttons and oled display (done)
-  * Add the IR LED and code that so that it works with a camera
+  * Produce a usable menu system testing four buttons and oled display (DONE)
+  * Add the IR LED and code that so that it works with a camera (DONE)
+* Fully implement intervalometer functionality
+* Design and print prototype PCBs for easier working
   
 # Current hardware and software
 
@@ -39,21 +41,21 @@ Hardware configuration is as follows:
 
 Arduino Nano clone based
 
-Arduino pin------Configuration------Connection 1------Connection 2------Connection 3
+Arduino pin------Configuration------Connection 1---------------------Connection 2------------Connection 3
 
-D2---------------INPUT_PULLUP-------BUTTON_1----------GND
+D2---------------INPUT--------------1k Ohm resistor & BUTTON_1---------GND
 
-D3---------------INPUT_PULLUP-------BUTTON_2----------GND
+D3---------------INPUT--------------1k Ohm resistor & BUTTON_2---------GND
 
-D4---------------INPUT_PULLUP-------BUTTON_3----------GND
+D4---------------INPUT--------------1k Ohm resistor & BUTTON_3---------GND
 
-D5---------------INPUT_PULLUP-------BUTTON_4----------GND
+D5---------------INPUT--------------1k Ohm resistor & BUTTON_4---------GND
 
-D6---------------OUTPUT--------------220 Ohm resistor---IR_LED---------------GND
+D6---------------OUTPUT--------------220 Ohm resistor------------------IR_LED---------------GND
 
-D7---------------OUTPUT--------------220 Ohm resistor---RED_LED-------------GND
+D7---------------OUTPUT--------------220 Ohm resistor------------------RED_LED-------------GND
 
-D8---------------OUTPUT--------------220 Ohm resistor---GREEN_LED----------GND
+D8---------------OUTPUT--------------220 Ohm resistor------------------GREEN_LED----------GND
 
 
 
@@ -75,7 +77,8 @@ BUTTON_4 = Right
 
 The current code shows the Zeus Trigger logo and flashes it a few times.
 There's then a six item menu that can be navigated using the left and right buttons.
-The first menu item is an example item with a sub menu. This sub menu also contains a menu with its second item.
+The first item is what is becoming the intervalometer. You can now set an interval time and save it (not a persistant save yet).
+It does also include a further sub menu for testing purposes.
 
 The second item in the main menu is to send a "shoot" command via the IR LED to a Nikon camera.
 

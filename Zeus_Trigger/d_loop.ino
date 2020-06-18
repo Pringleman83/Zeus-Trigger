@@ -2,7 +2,6 @@ void loop() {
   buttonDebounce();
   navigation();
   backCheck();
-
   if (debug){
     //Display the current select menu item in the serial output every time it changes if debugging is enabled
     if (menuItem != prevMenuItemDebug){
@@ -139,7 +138,7 @@ void loop() {
       display.print("1) Set interval");
       display.setCursor(0,35);
       display.print("Current:");
-      displayTime(0, 50, getHours(intervalometerInterval), getMinutes(intervalometerInterval), getSeconds(intervalometerInterval), 0, false);
+      displayTime(0, 50,getDays(intervalometerInterval), getHours(intervalometerInterval), getMinutes(intervalometerInterval), getSeconds(intervalometerInterval), 0, false);
       parentItem = 1;
 
       if (button3State){
@@ -149,6 +148,7 @@ void loop() {
         display.invertDisplay(0);
         resetButton3();
         setTime("Set interval", intervalometerInterval);
+        Serial.println(intervalometerInterval);
         menuItem = 101;
       }
       break;
