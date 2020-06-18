@@ -67,6 +67,7 @@ A5---------------OLED SCL
 
 GND------------OLED GND----------GND
 
+Note: The four 1k Ohm resistors are all pullup resistors and all connect to +5V.
 
 Software
 
