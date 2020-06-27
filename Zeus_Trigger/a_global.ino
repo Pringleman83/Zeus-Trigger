@@ -83,7 +83,7 @@ int parentItem = 1;// Current menu parent item - Used for back button operation
 // Settings
 // Trigger devices
 // 0 = disabled =, 1 = Camera cable, 2 = Nikon IR, 3 = Canon IR
-int triggerDevice1 = 1;
+int triggerDevice1 = 2;
 int triggerDevice2 = 0;
 int triggerDevice3 = 0;
 int triggerDevice4 = 0;
