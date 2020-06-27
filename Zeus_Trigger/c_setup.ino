@@ -1,6 +1,6 @@
 void setup() {
-  Serial.begin(9600); //For debugging purposes
-  while(!Serial)
+  //Serial.begin(9600); //For debugging purposes
+  //while(!Serial)
 
   pinMode(BUTTON_1, INPUT);
   pinMode(BUTTON_2, INPUT);
@@ -13,7 +13,8 @@ void setup() {
   
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   while(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
-    Serial.println(F("SSD1306 allocation failed"));
+    //Serial.println(F("SSD1306 allocation failed"));
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
     delay(1000);
   }
 

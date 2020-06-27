@@ -2,28 +2,6 @@ void loop() {
   buttonDebounce();
   navigation();
   backCheck();
-  if (debug){
-    //Display the current select menu item in the serial output every time it changes if debugging is enabled
-    if (menuItem != prevMenuItemDebug){
-      Serial.println();
-      Serial.println("///////////");
-      Serial.println("menuItem:");
-      Serial.println(menuItem);
-      Serial.println("///////////");
-      Serial.println();
-      prevMenuItemDebug = menuItem;
-    }
-    if (parentItem != prevParentItemDebug){
-      Serial.println("///////////");
-      Serial.println("parentItem:");
-      Serial.println(parentItem);
-      Serial.println("///////////");
-      Serial.println();
-      prevParentItemDebug = parentItem;
-    }
-    digitalWrite(RED_LED, button1State);
-    digitalWrite(GREEN_LED, button4State);
-  }
   switch (menuItem) {
     ////////////////////////////////// 
     case 1:
@@ -50,17 +28,14 @@ void loop() {
       display.setCursor(0,5);
       display.print("2) Shoot!");
       display.setCursor(0,20);
-      display.print("Trigger Nikon Camera");
+      display.print("Trigger");
       display.display();
       
       if (button3State){
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
-        if (debug){
-          Serial.println("nikonShoot");
-        }
-        nikonShoot();
+        trigger();
         resetButton3();
       }
       break;
@@ -148,7 +123,6 @@ void loop() {
         display.invertDisplay(0);
         resetButton3();
         setTime("Set interval", intervalometerInterval);
-        Serial.println(intervalometerInterval);
         menuItem = 101;
       }
       break;
@@ -159,7 +133,18 @@ void loop() {
       display.setCursor(0,5);
       display.print("Intervalometer");
       display.setCursor(0,20);
-      display.print("2) Test sub sub menu");
+      display.print("2) Set target type");
+      //Time or number of shots
+      display.setCursor(0,35);
+      if (intervalTargetType == 1){ // Time
+        display.print("<None>");
+      }
+      else if (intervalTargetType == 2){ // Time
+        display.print("<Time>");
+      }
+      else if (intervalTargetType == 3){ // Number of shots
+        display.print("<No. of Shots>");
+      }
       display.display();
       parentItem = 1;
 
@@ -167,8 +152,8 @@ void loop() {
         display.invertDisplay(1);
         delay(100);
         display.invertDisplay(0);
-        menuItem = 111;
         resetButton3();
+        intervalTargetType = selectItem("Set target type", 3, "None", "Time", "No. of Shots", intervalTargetType);
       }
       break;
       //////////////////////////////////
@@ -178,7 +163,29 @@ void loop() {
       display.setCursor(0,5);
       display.print("Intervalometer");
       display.setCursor(0,20);
-      display.print("3) Empty");
+      display.print("3) Set target ");
+      display.setCursor(0,35);
+      if (intervalTargetType == 1){ // None
+        display.print("<No target>");
+      }
+      else if (intervalTargetType == 2){ // Time
+        display.print("<Time>");
+      }
+      else if (intervalTargetType == 3){ // Number of shots
+        display.print("<No. of shots>");
+      }
+      
+      display.setCursor(0,50);
+      if (intervalTargetType == 1){ // None
+        display.print("Infinite loop");
+      }
+      else if (intervalTargetType == 2){ // Time
+        displayTime(0, 50,getDays(intervalTargetTime), getHours(intervalTargetTime), getMinutes(intervalTargetTime), getSeconds(intervalTargetTime), 0, false);
+      }
+      else if (intervalTargetType == 3){ // Number of shots
+        display.print(intervalTargetShots);
+        display.print(" shots");
+      }
       display.display();
       parentItem = 1;
 
@@ -187,6 +194,12 @@ void loop() {
         delay(100);
         display.invertDisplay(0);
         resetButton3();
+        if (intervalTargetType == 2){ // Time
+          setTime("Set target time", intervalTargetTime);
+        }
+        if (intervalTargetType == 3){ // Number of shots
+           getLong("Enter no. of shots:", intervalTargetShots);
+        }
       }
       break;
       //////////////////////////////////
@@ -196,7 +209,7 @@ void loop() {
       display.setCursor(0,5);
       display.print("Intervalometer");
       display.setCursor(0,20);
-      display.print("4) Empty");
+      display.print("4) Start");
       display.display();
       parentItem = 1;
 
@@ -205,6 +218,7 @@ void loop() {
         delay(100);
         display.invertDisplay(0);
         resetButton3();
+        startIntervalometer();
       }
       break;
       //////////////////////////////////

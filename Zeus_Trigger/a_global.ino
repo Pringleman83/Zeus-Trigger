@@ -18,12 +18,6 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-//Debugging options and related variables
-bool debug = false;
-int prevMenuItemDebug = 999;
-int prevParentItemDebug = 999;
-//===================
-
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
@@ -65,8 +59,7 @@ unsigned long lastMenuChange = 0;
 unsigned long debounceDelay = 50;
 
 //Cursor variables
-unsigned long flashTime = 250
-;
+unsigned long flashTime = 250;
 unsigned long lastFlash = 0;
 bool flashState = false;
 
@@ -84,5 +77,19 @@ int highestMenu7Item = 706; // The last item in the 7 submenu
 int parentItem = 1;// Current menu parent item - Used for back button operation
 
 //Option variables
+
 // Many of these values will be recovered from the eeprom on boot
+
+// Settings
+// Trigger devices
+// 0 = disabled =, 1 = Camera cable, 2 = Nikon IR, 3 = Canon IR
+int triggerDevice1 = 1;
+int triggerDevice2 = 0;
+int triggerDevice3 = 0;
+int triggerDevice4 = 0;
+
+//Intervalometer
 unsigned long intervalometerInterval = 0; // Number of milliseconds between each shot using the intervalometer
+int intervalTargetType = 1; // The type of interval selected for the intervalometer function (1 = none, 2 = time, 3 = number of shots)
+unsigned long intervalTargetTime = 30000; // The target time for the intervalometer to run
+unsigned long intervalTargetShots = 50; // The target shots for the intervalometer to run
