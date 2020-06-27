@@ -51,11 +51,11 @@ D4---------------INPUT--------------1k Ohm resistor & BUTTON_3---------GND
 
 D5---------------INPUT--------------1k Ohm resistor & BUTTON_4---------GND
 
-D6---------------OUTPUT--------------220 Ohm resistor------------------IR_LED---------------GND
+D6---------------OUTPUT------------220 Ohm resistor----------------------IR_LED---------------GND
 
-D7---------------OUTPUT--------------220 Ohm resistor------------------RED_LED-------------GND
+D7---------------OUTPUT------------220 Ohm resistor----------------------RED_LED-------------GND
 
-D8---------------OUTPUT--------------220 Ohm resistor------------------GREEN_LED----------GND
+D8---------------OUTPUT------------220 Ohm resistor----------------------GREEN_LED----------GND
 
 
 
@@ -65,8 +65,9 @@ A5---------------OLED SCL
 
 5V---------------OLED VCC
 
-GND------------OLED GND------------GND
+GND------------OLED GND----------GND
 
+Note: The four 1k Ohm resistors are all pullup resistors and all connect to +5V.
 
 Software
 
